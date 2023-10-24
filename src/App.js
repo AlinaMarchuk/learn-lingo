@@ -1,15 +1,15 @@
 import "./App.css";
 import Home from "./pages/Home";
+import Teachers from "./pages/Teachers";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="/teachers" element={<div>Teachers</div>}></Route>
-          {/* <Route path="/favorites" element={<Navigate to={"/"} />} /> */}
-        </Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/teachers" element={<Teachers />}></Route>
+        {/* <Route path="/favorites" element={<Navigate to={"/"} />} /> */}
       </Routes>
     </>
   );
