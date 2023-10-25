@@ -9,14 +9,32 @@ export const ListItem = styled.li`
   &:not(:last-child) {
     margin-bottom: 32px;
   }
+  flex-wrap: wrap;
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
+`;
+
+export const AvatarThumb = styled.div`
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  padding: 10px;
+  border-radius: 50%;
+  border: 3px solid var(--first-theme-bg-color);
+  background: #fff;
 `;
 
 export const MainAvatar = styled.img`
-  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
 `;
 
 export const InfoBox = styled.div`
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const SpanStyled = styled.span`
@@ -29,7 +47,7 @@ export const SpanStyled = styled.span`
 export const InfoList = styled.ul`
   display: flex;
   gap: 16px;
-  margin: 0 64px 0 192px;
+  flex-wrap: wrap;
 `;
 
 export const InfoItem = styled.li`
@@ -37,6 +55,12 @@ export const InfoItem = styled.li`
     padding-right: 16px;
     border-right: 1px solid var(--item-divider-color);
   }
+`;
+
+export const LessonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
 
 export const InfoName = styled.span`
@@ -102,10 +126,22 @@ export const FeedbackList = styled.ul`
   margin: 32px 0;
 `;
 
+export const FeedbackItem = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
+`;
+
 export const AvatarInfo = styled.div`
   display: flex;
   gap: 12px;
   margin-bottom: 16px;
+`;
+
+export const StudentAvatar = styled.img`
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
 `;
 
 export const NameStyled = styled.h3`
@@ -132,6 +168,7 @@ export const FeedbackStyled = styled.p`
 export const LevelList = styled.ul`
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 `;
 
 export const LevelItem = styled.li`
@@ -143,4 +180,22 @@ export const LevelItem = styled.li`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.14;
+
+  &:first-child {
+    background-color: var(--first-theme-accent-color);
+    border-color: transparent;
+  }
+`;
+
+export const BookBtn = styled.button`
+  padding: 16px 48px;
+  margin-top: 32px;
+  border-radius: 12px;
+  background-color: var(--first-theme-accent-color);
+  border-color: transparent;
+
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.55;
 `;

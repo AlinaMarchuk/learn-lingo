@@ -4,13 +4,18 @@ import AuthNav from "../AuthNav/AuthNav";
 
 import { HeaderSection, HeaderContainer } from "./Header.styled";
 
-const Header = () => {
+const Header = ({ user, setUser, onClickLogin, onClickRegistr }) => {
   return (
     <HeaderSection>
       <HeaderContainer>
         <Logo />
         <Navigation />
-        <AuthNav />
+        <AuthNav
+          user={user}
+          setUser={setUser}
+          onClickLogin={onClickLogin}
+          onClickRegistr={onClickRegistr}
+        />
       </HeaderContainer>
     </HeaderSection>
   );

@@ -1,10 +1,30 @@
-import { LoginBtn, RegisterBtn } from "./AuthNav.styled";
+import { LoginBtn, RegisterBtn, SignOutBtn } from "./AuthNav.styled";
+import { auth } from "../../firebase/config";
+import { signOut } from "firebase/auth";
 
-const AuthNav = () => {
+const AuthNav = ({ user, setUser, onClickLogin, onClickRegistr }) => {
+  const onSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("signOut successfull");
+        setUser(null);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
-      <LoginBtn>Log in</LoginBtn>
-      <RegisterBtn>Registration</RegisterBtn>
+      {user ? (
+        <SignOutBtn onClick={onSignOut}>SignOut</SignOutBtn>
+      ) : (
+        <>
+          {" "}
+          <LoginBtn onClick={onClickLogin}>Log in</LoginBtn>
+          <RegisterBtn onClick={onClickRegistr}>Registration</RegisterBtn>
+        </>
+      )}
     </div>
   );
 };

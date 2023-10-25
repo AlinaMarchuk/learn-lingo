@@ -1,11 +1,12 @@
-//import { Link } from "react-router-dom";
 import {
   ListItem,
+  AvatarThumb,
   MainAvatar,
   InfoBox,
   SpanStyled,
   InfoList,
   InfoItem,
+  LessonWrapper,
   InfoName,
   PriceSpan,
   TitleName,
@@ -15,13 +16,22 @@ import {
   LoadMoreStyled,
   Summary,
   FeedbackList,
+  FeedbackItem,
   AvatarInfo,
+  StudentAvatar,
   NameStyled,
   RateInfo,
   FeedbackStyled,
   LevelList,
   LevelItem,
+  BookBtn,
 } from "./Teacher.styled";
+
+import emptyAvatar from "../../images/images.png";
+import { FaRegHeart } from "react-icons/fa";
+import { BiBookOpen } from "react-icons/bi";
+import { AiFillStar } from "react-icons/ai";
+import { useState } from "react";
 
 const Teacher = ({
   name,
@@ -35,17 +45,28 @@ const Teacher = ({
   price_per_hour,
   rating,
   reviews,
+  levels,
+  onClickLesson,
 }) => {
+  const [moreInfo, setMoreInfo] = useState(false);
+
+  const handleMoreInfo = () => {
+    setMoreInfo(!moreInfo);
+  };
   return (
     <ListItem>
-      <MainAvatar src="" alt="teacher" />
+      <AvatarThumb>
+        <MainAvatar src={avatar_url} alt="teacher" />
+      </AvatarThumb>
       <div>
         <InfoBox>
           <SpanStyled>Languages</SpanStyled>
           <InfoList>
             <InfoItem>
-              <span>svg</span>
-              <InfoName>Lessons online</InfoName>
+              <LessonWrapper>
+                <BiBookOpen size={16} />
+                <InfoName>Lessons online</InfoName>
+              </LessonWrapper>
             </InfoItem>
             <InfoItem>
               <InfoName>
@@ -53,9 +74,12 @@ const Teacher = ({
               </InfoName>
             </InfoItem>
             <InfoItem>
-              <InfoName>
-                Rating:<span>&nbsp;{rating}</span>
-              </InfoName>
+              <LessonWrapper>
+                <AiFillStar size={20} color="#FFC531" />
+                <InfoName>
+                  Rating:<span>&nbsp;{rating}</span>
+                </InfoName>
+              </LessonWrapper>
             </InfoItem>
             <InfoItem>
               <InfoName>
@@ -63,10 +87,7 @@ const Teacher = ({
               </InfoName>
             </InfoItem>
           </InfoList>
-          {/* <svg>
-            <use>svg</use>
-          </svg> */}
-          <span>svg</span>
+          <FaRegHeart size={26} />
         </InfoBox>
         <TitleName>{`${name} ${surname}`}</TitleName>
         <ul>
@@ -99,28 +120,38 @@ const Teacher = ({
             </DetailsDescr>
           </DetailsItem>
         </ul>
-        <LoadMoreStyled type="button">Read more</LoadMoreStyled>
-        <Summary>{experience}</Summary>
-        <FeedbackList>
-          <li>
-            <AvatarInfo>
-              <img src="" alt="teacher" />
-              <div>
-                <NameStyled>{name}</NameStyled>
-                <RateInfo>{rating}</RateInfo>
-              </div>
-            </AvatarInfo>
-            <FeedbackStyled>
-              Jane's lessons were very helpful. I made good progress.
-            </FeedbackStyled>
-          </li>
-        </FeedbackList>
+        <LoadMoreStyled type="button" onClick={handleMoreInfo}>
+          {moreInfo ? "Less info" : "Read more"}
+        </LoadMoreStyled>
+        {moreInfo && (
+          <>
+            <Summary>{experience}</Summary>
+            <FeedbackList>
+              {reviews.map((review, i) => (
+                <FeedbackItem key={i}>
+                  <AvatarInfo>
+                    <StudentAvatar src={emptyAvatar} alt="student" />
+                    <div>
+                      <NameStyled>{review.reviewer_name}</NameStyled>
+                      <RateInfo>{review.reviewer_rating}</RateInfo>
+                    </div>
+                  </AvatarInfo>
+                  <FeedbackStyled>{review.comment}</FeedbackStyled>
+                </FeedbackItem>
+              ))}
+            </FeedbackList>
+          </>
+        )}
         <LevelList>
-          <LevelItem>#A1 Beginner</LevelItem>
-          <LevelItem>#A2 Elementary</LevelItem>
-          <LevelItem>#B1 Intermediate</LevelItem>
-          <LevelItem>#B2 Upper-Intermediate</LevelItem>
+          {levels.map((level, i) => (
+            <LevelItem key={i}>{level}</LevelItem>
+          ))}
         </LevelList>
+        {moreInfo && (
+          <BookBtn type="button" onClick={onClickLesson}>
+            Book trial lesson
+          </BookBtn>
+        )}
       </div>
     </ListItem>
   );

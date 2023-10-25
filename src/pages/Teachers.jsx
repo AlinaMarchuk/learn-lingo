@@ -2,10 +2,23 @@ import { useEffect, useState } from "react";
 import { db } from "../firebase/config";
 import { ref, onValue } from "firebase/database";
 import Teacher from "../components/Teacher/Teacher";
+import { TeacherSection, TeacherContainer } from "./Teachers.styled";
+import Modal from "../components/Modal/Modal";
+import ModalTitle from "../shared/components/ModalTitle/ModalTitle";
+import BookLesson from "../components/BookLesson/BookLesson";
 
 const Teachers = () => {
   //const [isLoaded, setIsLoaded] = useState (false)
   const [teachers, setTeachers] = useState([]);
+  const [showModalLesson, setShowModalLesson] = useState(false);
+
+  const onClickLesson = () => {
+    setShowModalLesson(true);
+  };
+
+  const onClose = () => {
+    setShowModalLesson(false);
+  };
 
   useEffect(() => {
     const teachersRef = ref(db, `/teachers`);
@@ -45,6 +58,7 @@ const Teachers = () => {
               price_per_hour,
               rating,
               reviews,
+              levels,
             },
             i
           ) => (
@@ -61,15 +75,31 @@ const Teachers = () => {
               price_per_hour={price_per_hour}
               rating={rating}
               reviews={reviews}
+              levels={levels}
+              onClickLesson={onClickLesson}
             ></Teacher>
           )
         );
 
   console.log(teachers);
+
   return (
-    <div>
-      <ul>{list}</ul>
-    </div>
+    <TeacherSection>
+      <TeacherContainer>
+        <ul>{list}</ul>
+        {showModalLesson && (
+          <Modal onClose={onClose}>
+            <ModalTitle
+              title={"Book trial lesson"}
+              subtitle={
+                "Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs."
+              }
+            ></ModalTitle>
+            <BookLesson />
+          </Modal>
+        )}
+      </TeacherContainer>
+    </TeacherSection>
   );
 };
 

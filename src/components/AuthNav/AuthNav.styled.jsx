@@ -23,3 +23,18 @@ export const RegisterBtn = styled.button`
   font-weight: 700;
   line-height: 1.25;
 `;
+
+export const SignOutBtn = styled.button`
+  padding: 14px 39px;
+
+  color: #fff;
+  background-color: #121417;
+  border-color: transparent;
+  border-radius: 12px;
+
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25;
+`;
