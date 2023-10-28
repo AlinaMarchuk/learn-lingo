@@ -6,7 +6,6 @@ const AuthNav = ({ user, setUser, onClickLogin, onClickRegistr }) => {
   const onSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("signOut successfull");
         setUser(null);
       })
       .catch((error) => {

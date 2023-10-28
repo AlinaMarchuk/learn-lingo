@@ -28,10 +28,12 @@ import {
 } from "./Teacher.styled";
 
 import emptyAvatar from "../../images/images.png";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaTrash } from "react-icons/fa";
 import { BiBookOpen } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { useState } from "react";
+import { auth } from "../../firebase/config";
+import { addFavoriteTeacher } from "../../firebase/operations";
 
 const Teacher = ({
   name,
@@ -47,12 +49,21 @@ const Teacher = ({
   reviews,
   levels,
   onClickLesson,
+  liked,
+  favorites = false,
 }) => {
   const [moreInfo, setMoreInfo] = useState(false);
+  const [fav, setFav] = useState(false);
 
   const handleMoreInfo = () => {
     setMoreInfo(!moreInfo);
   };
+
+  const handleLike = () => {
+    addFavoriteTeacher(auth.currentUser.uid, name, surname);
+    setFav(!fav);
+  };
+
   return (
     <ListItem>
       <AvatarThumb>
@@ -87,7 +98,15 @@ const Teacher = ({
               </InfoName>
             </InfoItem>
           </InfoList>
-          <FaRegHeart size={26} />
+          {favorites ? (
+            <FaTrash size={26} onClick={handleLike} />
+          ) : (
+            <FaRegHeart
+              size={26}
+              color={liked ? "red" : "black"}
+              onClick={handleLike}
+            />
+          )}
         </InfoBox>
         <TitleName>{`${name} ${surname}`}</TitleName>
         <ul>

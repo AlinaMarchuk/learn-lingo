@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+import HeroImg from "../../images/girl.png";
+import LaptopImg from "../../images/union.png";
+import AppleImg from "../../images/apple.png";
 
 export const HeroSection = styled.section`
   padding: 20px 0 32px;
@@ -59,6 +62,9 @@ export const ImageBox = styled.div`
   height: 530px;
   border-radius: 30px;
   background-color: var(--first-theme-bg-color);
+  background-image: url(${AppleImg}), url(${LaptopImg}), url(${HeroImg});
+  background-repeat: no-repeat;
+  background-position: 50% 85%, bottom, center;
 `;
 
 export const HeroBtn = styled.button`

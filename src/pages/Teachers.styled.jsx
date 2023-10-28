@@ -21,3 +21,16 @@ export const TeacherContainer = styled.div`
     padding: 0 128px;
   }
 `;
+
+export const ButtonStyled = styled.button`
+  display: block;
+  margin: 64px auto 0;
+  width: 183px;
+  height: 60px;
+  background-color: var(--button-bg-color);
+  border-radius: 12px;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+`;

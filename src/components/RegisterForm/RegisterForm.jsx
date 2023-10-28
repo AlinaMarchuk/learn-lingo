@@ -1,6 +1,6 @@
 import InputField from "../../shared/components/InputField/InputField";
 import Button from "../../shared/components/Button/Button";
-import { Formik, Field, Form } from "formik";
+import { Formik, Form } from "formik";
 import { RegisterSchema } from "../Schemas/AuthSchemas";
 import { Container, PasswordWrapper } from "./RegisterForm.styled";
 import { useState } from "react";
@@ -19,7 +19,6 @@ const RegisterForm = ({ onClose }) => {
   const handleSubmit = async ({ name, email, password }, { resetForm }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
-        console.log("registerCred:", userCredentials);
         addUserDb(userCredentials.user.uid, email, name);
         onClose();
       })

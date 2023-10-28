@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-//import '../../shared/basicStyles/variables.scss';
 
 export const BackdropStyled = styled.div`
   position: fixed;

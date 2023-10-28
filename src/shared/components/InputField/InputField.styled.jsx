@@ -16,7 +16,6 @@ export const StyledInputField = styled(Field)`
 
   &::placeholder {
     color: var(--input-placeholder-color);
-    //  text-transform: capitalize;
   }
   &:hover,
   &:focus,

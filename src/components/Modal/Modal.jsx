@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-//import sprite from '../../images/sprite.svg';
 import {
   BackdropStyled,
   ModalWindowStyled,

@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const ListItem = styled.li`
   display: flex;
+  justify-content: space-evenly;
   gap: 48px;
   padding: 24px 24px;
   border-radius: 24px;
@@ -33,6 +34,7 @@ export const MainAvatar = styled.img`
 
 export const InfoBox = styled.div`
   display: flex;
+  gap: 60px;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
@@ -181,7 +183,7 @@ export const LevelItem = styled.li`
   font-weight: 500;
   line-height: 1.14;
 
-  &:first-child {
+  &:first-of-type {
     background-color: var(--first-theme-accent-color);
     border-color: transparent;
   }

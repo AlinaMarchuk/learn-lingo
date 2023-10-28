@@ -16,12 +16,9 @@ const LoginForm = ({ onClose }) => {
   };
 
   const handleSubmit = async ({ email, password }, { resetForm }) => {
-    console.log(email, password);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        //const user = userCredential.user;
         onClose();
-        //console.log(user)
       })
       .catch((error) => {
         console.log(error.code);
