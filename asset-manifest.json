@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/learn-lingo/static/css/main.5fbb44d5.css",
-    "main.js": "/learn-lingo/static/js/main.8255168f.js",
+    "main.js": "/learn-lingo/static/js/main.5603407a.js",
     "static/js/787.eb7aa203.chunk.js": "/learn-lingo/static/js/787.eb7aa203.chunk.js",
     "static/media/Roboto-Italic.eot": "/learn-lingo/static/media/Roboto-Italic.7588d6373c3525bc74cd.eot",
     "static/media/Roboto-Italic.ttf": "/learn-lingo/static/media/Roboto-Italic.4302c2e2c9e789c4c7ea.ttf",
@@ -11,17 +11,19 @@
     "static/media/Roboto-Regular.ttf": "/learn-lingo/static/media/Roboto-Regular.25e40da956314b12d333.ttf",
     "static/media/Roboto-Bold.eot": "/learn-lingo/static/media/Roboto-Bold.6490694b37b0ee09bd91.eot",
     "static/media/Roboto-Bold.ttf": "/learn-lingo/static/media/Roboto-Bold.5e9f6556d3c0bf6230f0.ttf",
+    "static/media/girl.png": "/learn-lingo/static/media/girl.2fd2b94902501584b2eb.png",
     "static/media/Roboto-Italic.woff": "/learn-lingo/static/media/Roboto-Italic.0d0bf30e7eeb4f6e7fd5.woff",
     "static/media/Roboto-Medium.woff": "/learn-lingo/static/media/Roboto-Medium.b14ca2d2b289afceb0b0.woff",
     "static/media/Roboto-Bold.woff": "/learn-lingo/static/media/Roboto-Bold.3f2cbde6b72e8d05669f.woff",
     "static/media/Roboto-Regular.woff": "/learn-lingo/static/media/Roboto-Regular.31012f9b3e3da44f87e8.woff",
+    "static/media/union.png": "/learn-lingo/static/media/union.2db9a04ac186d1fae499.png",
     "index.html": "/learn-lingo/index.html",
     "main.5fbb44d5.css.map": "/learn-lingo/static/css/main.5fbb44d5.css.map",
-    "main.8255168f.js.map": "/learn-lingo/static/js/main.8255168f.js.map",
+    "main.5603407a.js.map": "/learn-lingo/static/js/main.5603407a.js.map",
     "787.eb7aa203.chunk.js.map": "/learn-lingo/static/js/787.eb7aa203.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5fbb44d5.css",
-    "static/js/main.8255168f.js"
+    "static/js/main.5603407a.js"
   ]
 }
