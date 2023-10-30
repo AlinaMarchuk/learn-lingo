@@ -71,12 +71,20 @@ export const HeroBtn = styled.button`
   padding: 16px 88px;
   border-radius: 12px;
   background-color: var(--first-theme-accent-color);
-  border: none;
+  border: 1px solid transparent;
 
   color: var(--text-color);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.55;
+  transition: all var(--transition-duration-and-fun);
+
+  &:hover,
+  :focus {
+    background-color: var(--first-theme-accent-color);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
 `;
 
 export const InfoBox = styled.div`

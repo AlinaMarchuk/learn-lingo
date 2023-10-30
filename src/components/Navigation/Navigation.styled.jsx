@@ -12,4 +12,10 @@ export const NavLinkStyled = styled(NavLink)`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
+  transition: all var(--transition-duration-and-fun);
+
+  &:hover,
+  :focus {
+    color: var(--first-theme-accent-color);
+  }
 `;

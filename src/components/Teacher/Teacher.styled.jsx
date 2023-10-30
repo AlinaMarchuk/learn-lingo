@@ -115,6 +115,12 @@ export const LoadMoreStyled = styled.button`
   line-height: 1.5;
   text-decoration-line: underline;
   border: none;
+  transition: all var(--transition-duration-and-fun);
+
+  &:hover,
+  :focus {
+    color: var(--first-theme-accent-color);
+  }
 `;
 
 export const Summary = styled.p`

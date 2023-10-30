@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const HeaderSection = styled.div`
-  padding: 20px 0 0;
+  padding: 20px 0;
 `;
 
 export const HeaderContainer = styled.div`
