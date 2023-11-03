@@ -8,12 +8,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Getting started
 
+```bash
 # Clone this repository
 $ git clone https://github.com/AlinaMarchuk/learn-lingo.git
 # Install dependencies
 $ npm install
 # Run the app
 $ npm start
+```
 
 ## Available Scripts
 
