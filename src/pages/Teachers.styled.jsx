@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const TeacherSection = styled.section`
+  height: 100vh;
   padding: 96px 0;
   background-color: var(--hero-bg-color);
 `;

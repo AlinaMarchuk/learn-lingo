@@ -7,28 +7,16 @@ import {
   TeacherContainer,
   ButtonStyled,
 } from "./Teachers.styled";
-import Modal from "../components/Modal/Modal";
-import ModalTitle from "../shared/components/ModalTitle/ModalTitle";
-import BookLesson from "../components/BookLesson/BookLesson";
 import { onAuthStateChanged } from "firebase/auth";
 
 const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
   const [arrFavs, setArrFavs] = useState([]);
   const [user, setUser] = useState(null);
-  const [showModalLesson, setShowModalLesson] = useState(false);
   const [showMoreBtn, setShowMoreBtn] = useState(true);
   const [page, setPage] = useState(1);
 
   const teachersRef = ref(db, "/teachers");
-
-  const onClickLesson = () => {
-    setShowModalLesson(true);
-  };
-
-  const onClose = () => {
-    setShowModalLesson(false);
-  };
 
   useEffect(() => {
     onAuthStateChanged(auth, (credentials) => {
@@ -112,7 +100,6 @@ const Teachers = () => {
                 rating={rating}
                 reviews={reviews}
                 levels={levels}
-                onClickLesson={onClickLesson}
                 liked={arrFavs.includes(name + " " + surname)}
               ></Teacher>
             )
@@ -123,17 +110,6 @@ const Teachers = () => {
       <TeacherSection>
         <TeacherContainer>
           <ul>{list}</ul>
-          {showModalLesson && (
-            <Modal onClose={onClose}>
-              <ModalTitle
-                title={"Book trial lesson"}
-                subtitle={
-                  "Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs."
-                }
-              ></ModalTitle>
-              <BookLesson />
-            </Modal>
-          )}
           {showMoreBtn && (
             <ButtonStyled onClick={handleLoadMore}>Load More</ButtonStyled>
           )}

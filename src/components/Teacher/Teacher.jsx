@@ -34,6 +34,9 @@ import { AiFillStar } from "react-icons/ai";
 import { useState } from "react";
 import { auth } from "../../firebase/config";
 import { addFavoriteTeacher } from "../../firebase/operations";
+import Modal from "../Modal/Modal";
+import ModalTitle from "../../shared/components/ModalTitle/ModalTitle";
+import BookLesson from "../BookLesson/BookLesson";
 
 const Teacher = ({
   name,
@@ -48,20 +51,39 @@ const Teacher = ({
   rating,
   reviews,
   levels,
-  onClickLesson,
   liked,
   favorites = false,
 }) => {
   const [moreInfo, setMoreInfo] = useState(false);
   const [fav, setFav] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showModalLesson, setShowModalLesson] = useState(false);
+
+  const onClickLesson = () => {
+    setShowModalLesson(true);
+  };
+
+  const onClose = () => {
+    setShowModalLesson(false);
+  };
 
   const handleMoreInfo = () => {
     setMoreInfo(!moreInfo);
   };
 
+  const onOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const onCloseModal = () => {
+    setShowModal(false);
+  };
+
   const handleLike = () => {
-    addFavoriteTeacher(auth.currentUser.uid, name, surname);
-    setFav(!fav);
+    if (auth.currentUser) {
+      addFavoriteTeacher(auth.currentUser.uid, name, surname);
+      setFav(!fav);
+    } else onOpenModal();
   };
 
   return (
@@ -172,6 +194,22 @@ const Teacher = ({
           </BookBtn>
         )}
       </div>
+      {showModal && (
+        <Modal onClose={onCloseModal}>
+          <p>This functionality is available only to authorized users</p>
+        </Modal>
+      )}
+      {showModalLesson && (
+        <Modal onClose={onClose}>
+          <ModalTitle
+            title={"Book trial lesson"}
+            subtitle={
+              "Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs."
+            }
+          ></ModalTitle>
+          <BookLesson avatar={avatar_url} name={name} surname={surname} />
+        </Modal>
+      )}
     </ListItem>
   );
 };

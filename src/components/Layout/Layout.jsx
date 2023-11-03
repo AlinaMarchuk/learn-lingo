@@ -8,6 +8,7 @@ import LoginForm from "../LoginForm/LoginForm";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import { auth } from "../../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
+import ModalTitle from "../../shared/components/ModalTitle/ModalTitle";
 
 const Layout = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -37,7 +38,12 @@ const Layout = () => {
   };
 
   return (
-    <>
+    <div
+      style={{
+        overflow: showLoginModal || showRegistrModal ? "hidden" : "auto",
+        position: showLoginModal || showRegistrModal ? "fixed" : "static",
+      }}
+    >
       <Header
         user={user}
         setUser={setUser}
@@ -46,18 +52,30 @@ const Layout = () => {
       />
       {showLoginModal && (
         <Modal onClose={onClose}>
+          <ModalTitle
+            title={"Log In"}
+            subtitle={
+              "Welcome back! Please enter your credentials to access your account and continue your search for an teacher."
+            }
+          />
           <LoginForm onClose={onClose} />
         </Modal>
       )}
       {showRegistrModal && (
         <Modal onClose={onClose}>
+          <ModalTitle
+            title={"Registration"}
+            subtitle={
+              "Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information"
+            }
+          />
           <RegisterForm onClose={onClose} />
         </Modal>
       )}
       <Suspense>
         <Outlet></Outlet>
       </Suspense>
-    </>
+    </div>
   );
 };
 

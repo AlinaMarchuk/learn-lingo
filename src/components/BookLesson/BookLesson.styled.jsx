@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Form } from "formik";
 
 export const TeacherInfo = styled.div`
   display: flex;
@@ -26,9 +27,13 @@ export const TeachersName = styled.h3`
   line-height: 1.5;
 `;
 
-export const FormStyled = styled.form`
+export const FormStyled = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: 18px;
   margin-top: 21px;
+`;
+
+export const RadioBtn = styled.input`
+  margin-right: 8px;
 `;

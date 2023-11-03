@@ -35,3 +35,20 @@ export const RegisterSchema = Yup.object().shape({
       excludeEmptyString: true,
     }),
 });
+
+export const BookSchema = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string()
+    .email("Invalid email")
+    .required("Email is required")
+    .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
+      message: "Email error",
+      excludeEmptyString: true,
+    }),
+  phone: Yup.string()
+    .required("Phone is required")
+    .matches(/^[0-9]+$/, {
+      message: "Phone error",
+      excludeEmptyString: true,
+    }),
+});
