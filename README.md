@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# Learn Lingo App
+
+An application for a company that offers to use the services of online language teachers.
+
+### [Link to template Figma](https://www.figma.com/file/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?node-id=14%3A1187&mode=dev)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Getting started
+
+# Clone this repository
+$ git clone https://github.com/AlinaMarchuk/learn-lingo.git
+# Install dependencies
+$ npm install
+# Run the app
+$ npm start
 
 ## Available Scripts
 
